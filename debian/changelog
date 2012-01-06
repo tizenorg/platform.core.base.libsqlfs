@@ -1,0 +1,7 @@
+libsqlfs (1.1-slp1) unstable; urgency=low
+
+  * Initial Release
+  * Git: pkgs/l/libsqlfs.git
+  * Tag: libsqlfs_1.1-slp1
+
+ -- Hyungdeuk Kim <hd3.kim@samsung.com>  Tue, 07 Wed 2011 14:56:20 +0900
