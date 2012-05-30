@@ -5,6 +5,7 @@ Release:    5
 Group:      TO_BE/FILLED_IN
 License:    LGPLv2
 Source0:    libsqlfs-%{version}.tar.gz
+Source1001: packaging/libsqlfs.manifest 
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(fuse)
 BuildRequires:  libattr-devel
@@ -17,6 +18,7 @@ FUSE module for filesystem on top of an SQLite database
 %setup -q 
 
 %build
+cp %{SOURCE1001} .
 
 gcc  $(CFLAGS) \
                 -DFUSE \
@@ -52,6 +54,7 @@ ln -s ../init.d/sqlfs-mount %{buildroot}/etc/rc.d/rc3.d/S10sqlfs-mount
 ln -s ../init.d/sqlfs-mount %{buildroot}/etc/rc.d/rc4.d/S10sqlfs-mount
 
 %files
+%manifest libsqlfs.manifest
 %_bindir/sqlfs_txn_cmd
 %_bindir/libsqlfs_mount
 %_sysconfdir/rc.d/init.d/sqlfs-mount
