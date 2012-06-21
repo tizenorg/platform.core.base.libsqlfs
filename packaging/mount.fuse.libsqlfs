@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#
+# libsqlfs_mount needs only 1 parameter - the mount target, however, /bin/mount
+# passes $1 as the "source" which will break. So, toss out all the other
+# parameters and manually pass the proper options.
+#
+
+# do a quick check whether fuse.ko is loaded
+/sbin/modprobe fuse
+
+exec /usr/bin/libsqlfs_mount -s -o nonempty -o default_permissions -o allow_other "$2"
