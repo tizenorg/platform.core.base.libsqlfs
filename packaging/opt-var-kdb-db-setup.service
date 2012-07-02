@@ -4,7 +4,8 @@ Description=Initialize the SQLfs storage folders for firstboot
 ConditionPathExists=/opt/var/kdb/kdb_first_boot
 DefaultDependencies=no
 After=local-fs.target
-Before=opt-var-kdb-db.mount
+Before=opt-var-kdb-db-libsqlfs.service
+#Before=opt-var-kdb-db.mount
 
 [Service]
 Type=oneshot

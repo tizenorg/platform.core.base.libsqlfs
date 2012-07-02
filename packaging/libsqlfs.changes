@@ -1,0 +1,20 @@
+* Mon Jul 02 2012 Patrick McCarty <patrick.mccarty@linux.intel.com> da30650
+- Use libsqlfs_mount to mount the sqlfs
+
+* Thu Jun 21 2012 Patrick McCarty <patrick.mccarty@linux.intel.com> c6b2201
+- Add/install systemd service files
+
+* Tue May 29 2012 Ryan Ware <ryan.r.ware@intel.com> d0eff4f
+- Add default Smack manifest for libsqlfs.spec
+
+* Sun Apr 29 2012 Kim Kibum <kb0929.kim@samsung.com> 9a5896b
+- upload tizen1.0 source
+
+* Tue Mar 13 2012 Yan Yin <yan.yin@intel.com> 699dcb3
+- update for beta universally
+
+* Fri Jan 06 2012 Kibum Kim <kb0929.kim@samsung.com> 17cd8ae
+- Git init
+[ Eunkyoung Kim ]
+- Initial empty repository
+

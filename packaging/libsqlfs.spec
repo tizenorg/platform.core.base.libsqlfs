@@ -9,6 +9,7 @@ Source1:    opt-var-kdb-db.mount
 Source2:    opt-var-kdb-db-setup.service
 Source3:    sqlfs-setup
 Source4:    mount.fuse.libsqlfs
+Source5:    opt-var-kdb-db-libsqlfs.service
 Source1001: packaging/libsqlfs.manifest 
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(fuse)
@@ -28,7 +29,7 @@ FUSE module for filesystem on top of an SQLite database
 %build
 cp %{SOURCE1001} .
 
-gcc  $(CFLAGS) \
+gcc $CFLAGS \
                 -DFUSE \
                 -D_GNU_SOURCE \
                 -D_FILE_OFFSET_BITS=64 \
@@ -43,7 +44,7 @@ gcc  $(CFLAGS) \
                 -lfuse -lrt\
                 -lsqlite3 -ldl -lcap
 
-gcc $(CFLAGS) \
+gcc $CFLAGS \
                 sqlfs_txn_cmd.c \
                 -o sqlfs_txn_cmd \
                 $(LDFLAGS)
@@ -60,8 +61,9 @@ install -m 0755 %{SOURCE4} %{buildroot}/sbin/
 mkdir -p %{buildroot}%{_libdir}/systemd/system/basic.target.wants
 install -m 0644 %{SOURCE1} %{buildroot}%{_libdir}/systemd/system/
 install -m 0644 %{SOURCE2} %{buildroot}%{_libdir}/systemd/system/
-ln -sf ../opt-var-kdb-db.mount %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
+install -m 0644 %{SOURCE5} %{buildroot}%{_libdir}/systemd/system/
 ln -sf ../opt-var-kdb-db-setup.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
+ln -sf ../opt-var-kdb-db-libsqlfs.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
 
 mkdir -p %{buildroot}%{_sysconfdir}/rc.d/init.d
 mkdir -p %{buildroot}%{_sysconfdir}/rc.d/rc3.d
@@ -88,6 +90,7 @@ systemctl daemon-reload
 %{_bindir}/libsqlfs_mount
 %{_bindir}/sqlfs-setup
 %{_libdir}/systemd/system/opt-var-kdb-db.mount
+%{_libdir}/systemd/system/opt-var-kdb-db-libsqlfs.service
 %{_libdir}/systemd/system/opt-var-kdb-db-setup.service
-%{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db.mount
+%{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-libsqlfs.service
 %{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-setup.service
