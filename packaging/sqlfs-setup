@@ -12,10 +12,6 @@ if [ -f /opt/var/kdb/kdb_first_boot ]; then
    /bin/mkdir -p /opt/var/kdb/db
    /usr/bin/libsqlfs_mount -s -o nonempty -o default_permissions -o allow_other /opt/var/kdb/db
    /usr/bin/sqlfs_txn_cmd /opt/var/kdb/db "/bin/cp -a /opt/var/kdb/db_tmp/* /opt/var/kdb/db/"
-   for i in `/usr/bin/find /opt/var/kdb/db_tmp/`; do
-       f=`/bin/echo $i | /bin/sed "s/\/opt\/var\/kdb\/db_tmp/\/opt\/var\/kdb\/db/"`
-       /bin/chmod --reference="$i" "$f"
-   done
    /bin/rm -rf /opt/var/kdb/db_tmp /opt/var/kdb/kdb_first_boot
    /bin/umount /opt/var/kdb/db
 fi

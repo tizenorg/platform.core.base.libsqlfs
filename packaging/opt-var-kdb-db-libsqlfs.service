@@ -6,6 +6,7 @@ ConditionPathIsDirectory=/opt/var/kdb/db
 ConditionPathIsSymbolicLink=!/opt/var/kdb/db
 DefaultDependencies=no
 After=opt-var-kdb-db-setup.service
+Requires=opt-var-kdb-db-setup.service
 After=local-fs.target
 Before=basic.target
 

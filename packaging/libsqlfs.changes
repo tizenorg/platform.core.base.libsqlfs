@@ -1,3 +1,6 @@
+* Tue Jul 03 2012 William Douglas <william.douglas@intel.com> c0cb8b7
+- Remove chmod for kdb/db files being copied on firstboot.
+
 * Mon Jul 02 2012 Patrick McCarty <patrick.mccarty@linux.intel.com> da30650
 - Use libsqlfs_mount to mount the sqlfs
 
