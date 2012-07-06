@@ -1,3 +1,6 @@
+* Fri Jul 06 2012 Patrick McCarty <patrick.mccarty@linux.intel.com> 2cbd8f0
+- Fix directory permissions of sqlfs mount point after mounting
+
 * Tue Jul 03 2012 William Douglas <william.douglas@intel.com> c0cb8b7
 - Remove chmod for kdb/db files being copied on firstboot.
 

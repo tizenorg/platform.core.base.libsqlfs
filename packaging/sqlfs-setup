@@ -11,6 +11,7 @@ if [ -f /opt/var/kdb/kdb_first_boot ]; then
    /bin/mv /opt/var/kdb/db /opt/var/kdb/db_tmp
    /bin/mkdir -p /opt/var/kdb/db
    /usr/bin/libsqlfs_mount -s -o nonempty -o default_permissions -o allow_other /opt/var/kdb/db
+   /usr/bin/sqlfs_txn_cmd /opt/var/kdb/db "/bin/chmod 1777 /opt/var/kdb/db"
    /usr/bin/sqlfs_txn_cmd /opt/var/kdb/db "/bin/cp -a /opt/var/kdb/db_tmp/* /opt/var/kdb/db/"
    /bin/rm -rf /opt/var/kdb/db_tmp /opt/var/kdb/kdb_first_boot
    /bin/umount /opt/var/kdb/db
