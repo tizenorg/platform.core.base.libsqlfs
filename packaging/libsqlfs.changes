@@ -1,3 +1,6 @@
+* Wed Jul 18 2012 Chengwei Yang <chengwei.yang@intel.com> HEAD
+- Chmod for kdb/db files because cp on IA doesn't preserve priviliges
+
 * Fri Jul 06 2012 Patrick McCarty <patrick.mccarty@linux.intel.com> 2cbd8f0
 - Fix directory permissions of sqlfs mount point after mounting
 
