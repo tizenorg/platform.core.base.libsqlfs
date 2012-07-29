@@ -1,0 +1,18 @@
+
+[Unit]
+Description=Initialize the SQLfs storage folders for firstboot
+ConditionPathExists=/opt/var/kdb/kdb_first_boot
+DefaultDependencies=no
+After=local-fs.target
+Before=opt-var-kdb-db-libsqlfs.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/echo "Setting up SQLfs storage, this can take a long time..."
+ExecStartPre=-/sbin/modprobe fuse
+ExecStart=/usr/bin/sqlfs-setup
+TimeoutSec=15min
+
+[Install]
+WantedBy=basic.target
+

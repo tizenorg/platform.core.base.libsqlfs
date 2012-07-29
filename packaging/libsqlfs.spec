@@ -5,10 +5,19 @@ Release:    8
 Group:      TO_BE/FILLED_IN
 License:    LGPLv2
 Source0:    libsqlfs-%{version}.tar.gz
+Source1:    opt-var-kdb-db.mount
+Source2:    opt-var-kdb-db-setup.service
+Source3:    sqlfs-setup
+Source4:    mount.fuse.libsqlfs
+Source5:    opt-var-kdb-db-libsqlfs.service
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(fuse)
 BuildRequires:  libattr-devel
 BuildRequires:  libcap-devel
+Requires:       /usr/bin/find
+Requires(post):   systemd 
+Requires(postun): systemd
+
 
 %description
 FUSE module for filesystem on top of an SQLite database
@@ -42,23 +51,48 @@ gcc $(CFLAGS) -g \
 
 
 %install
-rm -rf %{buildroot}
-%__mkdir_p %{buildroot}/etc/rc.d/init.d
-%__mkdir_p %{buildroot}/etc/rc.d/rc3.d
-%__mkdir_p %{buildroot}/etc/rc.d/rc4.d
-%__mkdir_p %{buildroot}%_bindir
-install -c libsqlfs_mount %{buildroot}%_bindir
-install -c sqlfs_txn_cmd %{buildroot}%_bindir
-install -c sqlfs-mount %{buildroot}/etc/rc.d/init.d
-ln -s ../init.d/sqlfs-mount %{buildroot}/etc/rc.d/rc3.d/S03sqlfs-mount
-ln -s ../init.d/sqlfs-mount %{buildroot}/etc/rc.d/rc4.d/S03sqlfs-mount
+mkdir -p %{buildroot}%{_bindir}
+install -m 0755 libsqlfs_mount %{buildroot}%{_bindir}/
+install -m 0755 sqlfs_txn_cmd %{buildroot}%{_bindir}/
+install -m 0755 %{SOURCE3} %{buildroot}%{_bindir}/
+mkdir -p %{buildroot}/sbin
+install -m 0755 %{SOURCE4} %{buildroot}/sbin/
+
+mkdir -p %{buildroot}%{_libdir}/systemd/system/basic.target.wants
+install -m 0644 %{SOURCE1} %{buildroot}%{_libdir}/systemd/system/
+install -m 0644 %{SOURCE2} %{buildroot}%{_libdir}/systemd/system/
+install -m 0644 %{SOURCE5} %{buildroot}%{_libdir}/systemd/system/
+ln -sf ../opt-var-kdb-db-setup.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
+ln -sf ../opt-var-kdb-db-libsqlfs.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
+
+mkdir -p %{buildroot}%{_sysconfdir}/rc.d/init.d
+mkdir -p %{buildroot}%{_sysconfdir}/rc.d/rc3.d
+mkdir -p %{buildroot}%{_sysconfdir}/rc.d/rc4.d
+install -m 0755 sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/init.d
+ln -s ../init.d/sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/rc3.d/S03sqlfs-mount
+ln -s ../init.d/sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/rc4.d/S03sqlfs-mount
+
+
+%post
+systemctl daemon-reload
+ 
+%postun
+systemctl daemon-reload
+
 
 %files
-%_bindir/sqlfs_txn_cmd
-%_bindir/libsqlfs_mount
-%_sysconfdir/rc.d/init.d/sqlfs-mount
-%_sysconfdir/rc.d/rc3.d/S03sqlfs-mount
-%_sysconfdir/rc.d/rc4.d/S03sqlfs-mount
+%{_sysconfdir}/rc.d/init.d/sqlfs-mount
+%{_sysconfdir}/rc.d/rc3.d/S03sqlfs-mount
+%{_sysconfdir}/rc.d/rc4.d/S03sqlfs-mount
+/sbin/mount.fuse.libsqlfs
+%{_bindir}/sqlfs_txn_cmd
+%{_bindir}/libsqlfs_mount
+%{_bindir}/sqlfs-setup
+%{_libdir}/systemd/system/opt-var-kdb-db.mount
+%{_libdir}/systemd/system/opt-var-kdb-db-libsqlfs.service
+%{_libdir}/systemd/system/opt-var-kdb-db-setup.service
+%{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-libsqlfs.service
+%{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-setup.service
 
 %changelog
 * Thu Jul 12 2012 - Hyungdeuk Kim <hd3.kim@samsung.com>

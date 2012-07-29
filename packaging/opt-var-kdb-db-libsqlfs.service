@@ -1,0 +1,21 @@
+
+[Unit]
+Description=SQLfs mount for vconf
+# skip mounting if the directory does not exist or is a symlink
+ConditionPathIsDirectory=/opt/var/kdb/db
+ConditionPathIsSymbolicLink=!/opt/var/kdb/db
+DefaultDependencies=no
+After=opt-var-kdb-db-setup.service
+Requires=opt-var-kdb-db-setup.service
+After=local-fs.target
+Before=basic.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# bpeters - Busybox mount does not support mounting sqlfs, using libsqlfs_mount instead
+ExecStart=/usr/bin/libsqlfs_mount -s -o nonempty -o default_permissions -o allow_other -o use_ino -o noforget /opt/var/kdb/db
+
+[Install]
+WantedBy=basic.target
+
