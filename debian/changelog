@@ -1,7 +1,233 @@
-libsqlfs (1.1-slp1) unstable; urgency=low
+libsqlfs (1.2-8) unstable; urgency=low
 
-  * Initial Release
-  * Git: pkgs/l/libsqlfs.git
-  * Tag: libsqlfs_1.1-slp1
+  * add -g flags for exe file strip
+  * Git: slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-8
 
- -- Hyungdeuk Kim <hd3.kim@samsung.com>  Tue, 07 Wed 2011 14:56:20 +0900
+ -- Hyungdeuk Kim <hd3.kim@samsung.com>  Thu, 12 Jul 2012 20:00:43 +0900
+
+libsqlfs (1.2-7) unstable; urgency=low
+
+  * add use_ino , noforget for fixing fuse inode changes issue
+  * Git: slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-7
+
+ -- Hyungdeuk Kim <hd3.kim@samsung.com>  Fri, 15 Jun 2012 17:20:43 +0900
+
+libsqlfs (1.2-6) unstable; urgency=low
+
+  * change sqlfs-mount boot sequence from 10 to 03 requested by wonil22.choi
+  * Git: slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-6
+
+ -- Hyungdeuk Kim <hd3.kim@samsung.com>  Tue, 17 April 2012 08:20:43 +0900
+
+libsqlfs (1.2-5) unstable; urgency=low
+
+  * add smack label to sqlfs_mount
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-5
+
+ -- Hyungdeuk Kim <hd3.kim@samsung.com>  Mon, 27 Feb 2012 16:20:43 +0900
+
+libsqlfs (1.2-4) unstable; urgency=low
+
+  * Reapply xattr patch
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-4
+
+ -- Youmin Ha <youmin.ha@samsung.com>  Fri, 24 Jun 2011 11:20:43 +0900
+
+libsqlfs (1.2-3rb) unstable; urgency=low
+
+  * Rollback 1.2-3 (by libcap dependency problem)
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-3rb
+
+ -- Youmin Ha <youmin.ha@samsung.com>  Thu, 09 Jun 2011 21:15:24 +0900
+
+libsqlfs (1.2-3) unstable; urgency=low
+
+  * Apply fixed xattr patch
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-3
+
+ -- Youmin Ha <youmin.ha@samsung.com>  Thu, 09 Jun 2011 17:58:25 +0900
+
+libsqlfs (1.2-2slp3-1) unstable; urgency=low
+
+  * Rollback xattr patch
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-2slp3-1
+
+ -- Youmin Ha <youmin.ha@samsung.com>  Thu, 26 May 2011 19:47:53 +0900
+
+libsqlfs (1.2-2slp3) unstable; urgency=low
+
+  * Apply xattr patch from SISA (refer to bumjin.lim)
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-2slp3
+
+ -- Youmin Ha <youmin.ha@samsung.com>  Mon, 23 May 2011 18:39:03 +0900
+
+libsqlfs (1.2-1slp3) unstable; urgency=low
+
+  * Add gcc 4.5 fixes
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-2slp2
+
+ -- Mike McCormack <mj.mccormack@samsung.com>  Fri, 11 Mar 2011 19:42:20 +0900
+
+libsqlfs (1.2-1slp2) unstable; urgency=low
+
+  * vconf DAC enable
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.2-1slp2
+
+ -- Sangjung Woo <sangjung.woo@samsung.com>  Thu, 13 Jan  2011 09:19:31 +0900
+
+libsqlfs (1.1-21slp2) unstable; urgency=low
+
+  * Modify postinst srcipt
+  * Git: 165.213.180.234:/slp/pkgs/l/libsqlfs-1.1.git
+  * Tag: libsqlfs_1.1-21slp2
+
+ -- Sangjung Woo <sangjung.woo@samsung.com>  Wed, 15 Dec  2010 12:19:31 +0900
+
+libsqlfs (1.1-20slp2) unstable; urgency=low
+
+  * reupload
+  * Git: 165.213.180.234:/git/slp/pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-20slp2
+
+ -- Youmin Ha <youmin.ha@samsung.com>  Mon, 22 Nov 2010 11:19:31 +0900
+
+libsqlfs (1.1-19slp2) unstable; urgency=low
+
+  * Re-upload (change git repo path
+  * Git: 165.213.180.234:/git/slp/pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-19slp2
+
+ -- Youmin Ha <youmin.ha@samsung.com>  Sat, 20 Nov 2010 11:47:07 +0900
+
+libsqlfs (1.1-18slp2+1) unstable; urgency=low
+
+  * Modify S10sqlfs-mount script for bug fix
+  * Git: 165.213.180.234:/git/slp2.0/slp2.0-pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-18slp2+1
+
+ -- Sangjung Woo <sangjung.woo@samsung.com>  Thu, 14 Oct 2010 16:45:51 +0900
+
+libsqlfs (1.1-17slp2+1) unstable; urgency=low
+
+  * Make the link to /etc/rc.d/rc4.d/S10sqlfs-mount 
+  * Git: 165.213.180.234:/git/slp2.0/slp2.0-pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-17slp2+1
+
+ -- Sangjung Woo <sangjung.woo@samsung.com>  Thu, 14 Oct 2010 13:45:51 +0900
+
+libsqlfs (1.1-16slp2+1) unstable; urgency=low
+
+  * Add transactional command opreation 
+  * Git: 165.213.180.234:/git/slp2.0/slp2.0-pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-16slp2+1
+
+ -- Sangjung Woo <sangjung.woo@samsung.com>  Fri, 08 Oct 2010 16:45:51 +0900
+
+libsqlfs (1.1-15slp2+1) unstable; urgency=low
+
+  * debug to support DAC 
+  * Git: 165.213.180.234:/git/slp2.0/slp2.0-pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-15slp2+1
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Thu, 03 Jun 2010 16:45:51 +0900
+
+libsqlfs (1.1-14slp2+1) unstable; urgency=low
+
+  * change DAC policy
+  * Git: 165.213.180.234:/git/slp2.0/slp2.0-pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-14slp2+1
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Wed, 12 May 2010 21:08:22 +0900
+
+libsqlfs (1.1-13slp2+1) unstable; urgency=low
+
+  * add postinst for DAC and launching policy is changed
+  * Git: 165.213.180.234:/git/slp2.0/slp2.0-pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-13slp2+1
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Wed, 21 Apr 2010 14:55:05 +0900
+
+libsqlfs (1.1-12slp2+1) unstable; urgency=low
+
+  * change the fuse library from shared to static
+  * Git: 165.213.180.234:/git/slp2.0/slp2.0-pkgs/libsqlfs-1.1
+  * Tag: libsqlfs_1.1-12slp2+1
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Thu, 15 Apr 2010 13:53:24 +0900
+
+libsqlfs (1.1-11slp2+1) unstable; urgency=low
+
+  * change booting script policy(add S10sqlfs-mount) 
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Tue, 30 Mar 2010 18:44:25 +0900
+
+libsqlfs (1.1-10slp2+1) unstable; urgency=low
+
+  * change version rule
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Tue, 30 Mar 2010 14:41:08 +0900
+
+libsqlfs (1.1-9) unstable; urgency=low
+
+  * Toolchain Upgrade
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Thu, 25 Mar 2010 15:29:31 +0900
+
+libsqlfs (1.1-8) unstable; urgency=low
+
+  * rebuild for updating fuse
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Fri, 05 Feb 2010 08:26:03 +0900
+
+libsqlfs (1.1-7) unstable; urgency=low
+
+  * change journal_mode of sqlite3 to persist
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Tue, 02 Feb 2010 21:05:44 +0900
+
+libsqlfs (1.1-6) unstable; urgency=low
+
+  * change DIR stored DB
+
+ -- Youngjae Shin <yj99.shin@samsung.com>  Tue, 29 Dec 2009 10:16:44 +0900
+
+libsqlfs (1.1-5) unstable; urgency=low
+
+  * change database sync policy
+
+ -- Kn-Hoon Baik <knhoon.baik@samsung.com>  Tue, 24 Nov 2009 17:17:45 +0900
+
+libsqlfs (1.1-4) unstable; urgency=low
+
+  * Add as-needed ldflags
+
+ -- Kn-Hoon Baik <knhoon.baik@samsung.com>  Fri, 20 Nov 2009 15:36:35 +0900
+
+libsqlfs (1.1-3) unstable; urgency=low
+
+  * Fix dh_makeshlibs option
+
+ -- Kn-Hoon Baik <knhoon.baik@samsung.com>  Mon, 16 Nov 2009 11:08:11 +0900
+
+libsqlfs (1.1-2) unstable; urgency=low
+
+  * Fix dh_makeshlibs option
+
+ -- Kn-Hoon Baik <knhoon.baik@samsung.com>  Mon, 16 Nov 2009 11:08:11 +0900
+
+libsqlfs (1.1-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Kn-Hoon Baik <knhoon.baik@samsung.com>  Fri, 13 Nov 2009 11:59:38 +0900

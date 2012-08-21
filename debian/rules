@@ -88,8 +88,8 @@ install: build
 	install -c libsqlfs_mount $(CURDIR)/debian/tmp$(PREFIX)/bin/
 	install -c sqlfs_txn_cmd $(CURDIR)/debian/tmp$(PREFIX)/bin/
 	install -c sqlfs-mount $(CURDIR)/debian/tmp/etc/rc.d/init.d/
-	ln -s ../init.d/sqlfs-mount $(CURDIR)/debian/tmp/etc/rc.d/rc3.d/S10sqlfs-mount
-	ln -s ../init.d/sqlfs-mount $(CURDIR)/debian/tmp/etc/rc.d/rc4.d/S10sqlfs-mount
+	ln -s ../init.d/sqlfs-mount $(CURDIR)/debian/tmp/etc/rc.d/rc3.d/S03sqlfs-mount
+	ln -s ../init.d/sqlfs-mount $(CURDIR)/debian/tmp/etc/rc.d/rc4.d/S03sqlfs-mount
 
 # Build architecture-independent files here.
 binary-indep: build install
