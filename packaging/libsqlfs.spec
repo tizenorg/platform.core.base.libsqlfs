@@ -6,8 +6,6 @@ Group:      TO_BE/FILLED_IN
 License:    LGPLv2
 Source0:    libsqlfs-%{version}.tar.gz
 Source1:    opt-var-kdb-db.mount
-Source2:    opt-var-kdb-db-setup.service
-Source3:    sqlfs-setup
 Source4:    mount.fuse.libsqlfs
 Source5:    opt-var-kdb-db-libsqlfs.service
 BuildRequires:  pkgconfig(sqlite3)
@@ -54,15 +52,12 @@ gcc $(CFLAGS) -g \
 mkdir -p %{buildroot}%{_bindir}
 install -m 0755 libsqlfs_mount %{buildroot}%{_bindir}/
 install -m 0755 sqlfs_txn_cmd %{buildroot}%{_bindir}/
-install -m 0755 %{SOURCE3} %{buildroot}%{_bindir}/
 mkdir -p %{buildroot}/sbin
 install -m 0755 %{SOURCE4} %{buildroot}/sbin/
 
 mkdir -p %{buildroot}%{_libdir}/systemd/system/basic.target.wants
 install -m 0644 %{SOURCE1} %{buildroot}%{_libdir}/systemd/system/
-install -m 0644 %{SOURCE2} %{buildroot}%{_libdir}/systemd/system/
 install -m 0644 %{SOURCE5} %{buildroot}%{_libdir}/systemd/system/
-ln -sf ../opt-var-kdb-db-setup.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
 ln -sf ../opt-var-kdb-db-libsqlfs.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
 
 mkdir -p %{buildroot}%{_sysconfdir}/rc.d/init.d
@@ -87,12 +82,9 @@ systemctl daemon-reload
 /sbin/mount.fuse.libsqlfs
 %{_bindir}/sqlfs_txn_cmd
 %{_bindir}/libsqlfs_mount
-%{_bindir}/sqlfs-setup
 %{_libdir}/systemd/system/opt-var-kdb-db.mount
 %{_libdir}/systemd/system/opt-var-kdb-db-libsqlfs.service
-%{_libdir}/systemd/system/opt-var-kdb-db-setup.service
 %{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-libsqlfs.service
-%{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-setup.service
 
 %changelog
 * Thu Jul 12 2012 - Hyungdeuk Kim <hd3.kim@samsung.com>
