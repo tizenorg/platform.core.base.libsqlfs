@@ -28,7 +28,7 @@ FUSE module for filesystem on top of an SQLite database
 #%configure
 #make
 
-gcc  $(CFLAGS) -g \
+gcc  $CFLAGS -g \
                 -DFUSE \
                 -D_GNU_SOURCE \
                 -D_FILE_OFFSET_BITS=64 \
@@ -37,16 +37,16 @@ gcc  $(CFLAGS) -g \
                 -I/usr/include -I. \
                 sqlfs.c fuse_main.c \
                 -o libsqlfs_mount \
-                $(LDFLAGS) \
+                $LDFLAGS \
                 -L/usr/lib \
                 -lpthread \
                 -lfuse -lrt\
                 -lsqlite3 -ldl -lcap
 
-gcc $(CFLAGS) -g \
+gcc $CFLAGS -g \
                 sqlfs_txn_cmd.c \
                 -o sqlfs_txn_cmd \
-                $(LDFLAGS)
+                $LDFLAGS
 
 
 %install
