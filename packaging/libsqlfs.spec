@@ -1,7 +1,7 @@
 Name:       libsqlfs
 Summary:    FUSE module for filesystem on top of an SQLite db
 Version:    1.2
-Release:    8
+Release:    9
 Group:      TO_BE/FILLED_IN
 License:    LGPLv2
 Source0:    libsqlfs-%{version}.tar.gz
@@ -53,12 +53,16 @@ install -c sqlfs-mount %{buildroot}/etc/rc.d/init.d
 ln -s ../init.d/sqlfs-mount %{buildroot}/etc/rc.d/rc3.d/S03sqlfs-mount
 ln -s ../init.d/sqlfs-mount %{buildroot}/etc/rc.d/rc4.d/S03sqlfs-mount
 
+mkdir -p %{buildroot}/usr/share/license
+install COPYING %{buildroot}/usr/share/license/%{name}
 %files
-%_bindir/sqlfs_txn_cmd
-%_bindir/libsqlfs_mount
+%manifest libsqlfs.manifest
 %_sysconfdir/rc.d/init.d/sqlfs-mount
 %_sysconfdir/rc.d/rc3.d/S03sqlfs-mount
 %_sysconfdir/rc.d/rc4.d/S03sqlfs-mount
+%_bindir/sqlfs_txn_cmd
+%_bindir/libsqlfs_mount
+/usr/share/license/%{name}
 
 %changelog
 * Thu Jul 12 2012 - Hyungdeuk Kim <hd3.kim@samsung.com>
