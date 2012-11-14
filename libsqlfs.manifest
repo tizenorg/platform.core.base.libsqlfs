@@ -1,0 +1,8 @@
+<manifest>
+	<define>
+		<domain name="sqlfs"/>
+	</define>
+	<request>
+		<domain name="sqlfs"/>
+	</request>
+</manifest>

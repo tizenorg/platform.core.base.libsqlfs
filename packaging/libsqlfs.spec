@@ -1,13 +1,14 @@
 Name:       libsqlfs
 Summary:    FUSE module for filesystem on top of an SQLite db
 Version:    1.2
-Release:    8
+Release:    9
 Group:      TO_BE/FILLED_IN
 License:    LGPLv2
 Source0:    libsqlfs-%{version}.tar.gz
 Source1:    opt-var-kdb-db.mount
 Source4:    mount.fuse.libsqlfs
 Source5:    opt-var-kdb-db-libsqlfs.service
+Source6:    opt-var-kdb-db-libsqlfs.service
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(fuse)
 BuildRequires:  libattr-devel
@@ -58,7 +59,9 @@ install -m 0755 %{SOURCE4} %{buildroot}/sbin/
 mkdir -p %{buildroot}%{_libdir}/systemd/system/basic.target.wants
 install -m 0644 %{SOURCE1} %{buildroot}%{_libdir}/systemd/system/
 install -m 0644 %{SOURCE5} %{buildroot}%{_libdir}/systemd/system/
+install -m 0644 %{SOURCE6} %{buildroot}%{_libdir}/systemd/system/
 ln -sf ../opt-var-kdb-db-libsqlfs.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
+ln -sf ../opt-var-kdb-db-smack-labels.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
 
 mkdir -p %{buildroot}%{_sysconfdir}/rc.d/init.d
 mkdir -p %{buildroot}%{_sysconfdir}/rc.d/rc3.d
@@ -75,7 +78,10 @@ systemctl daemon-reload
 systemctl daemon-reload
 
 
+mkdir -p %{buildroot}/usr/share/license
+install COPYING %{buildroot}/usr/share/license/%{name}
 %files
+%manifest libsqlfs.manifest
 %{_sysconfdir}/rc.d/init.d/sqlfs-mount
 %{_sysconfdir}/rc.d/rc3.d/S03sqlfs-mount
 %{_sysconfdir}/rc.d/rc4.d/S03sqlfs-mount
@@ -85,6 +91,8 @@ systemctl daemon-reload
 %{_libdir}/systemd/system/opt-var-kdb-db.mount
 %{_libdir}/systemd/system/opt-var-kdb-db-libsqlfs.service
 %{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-libsqlfs.service
+%{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-smack-labels.service
+/usr/share/license/%{name}
 
 %changelog
 * Thu Jul 12 2012 - Hyungdeuk Kim <hd3.kim@samsung.com>

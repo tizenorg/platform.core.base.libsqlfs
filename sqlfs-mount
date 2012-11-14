@@ -13,4 +13,4 @@ else
 fi
 
 #smack label requested by kd0228.kim
-/bin/chsmack -a '*' /opt/var/kdb/db
+chsmack -a '*' /opt/var/kdb/db
