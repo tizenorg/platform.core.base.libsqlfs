@@ -70,6 +70,8 @@ install -m 0755 sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/init.d
 ln -s ../init.d/sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/rc3.d/S03sqlfs-mount
 ln -s ../init.d/sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/rc4.d/S03sqlfs-mount
 
+mkdir -p %{buildroot}/usr/share/license
+install COPYING %{buildroot}/usr/share/license/%{name}
 
 %post
 systemctl daemon-reload
@@ -77,9 +79,6 @@ systemctl daemon-reload
 %postun
 systemctl daemon-reload
 
-
-mkdir -p %{buildroot}/usr/share/license
-install COPYING %{buildroot}/usr/share/license/%{name}
 %files
 %manifest libsqlfs.manifest
 %{_sysconfdir}/rc.d/init.d/sqlfs-mount
