@@ -1,7 +1,7 @@
 Name:       libsqlfs
 Summary:    FUSE module for filesystem on top of an SQLite db
 Version:    1.2
-Release:    9
+Release:    10
 Group:      TO_BE/FILLED_IN
 License:    LGPLv2
 Source0:    libsqlfs-%{version}.tar.gz
