@@ -1,0 +1,15 @@
+
+[Unit]
+Description=SQLfs smack labels for vconf
+After=opt-var-kdb-db-libsqlfs.service
+Requires=opt-var-kdb-db-libsqlfs.service
+Before=basic.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/chsmack -a '*' /opt/var/kdb/db
+
+[Install]
+WantedBy=basic.target
+

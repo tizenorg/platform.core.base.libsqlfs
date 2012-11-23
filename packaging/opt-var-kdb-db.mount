@@ -1,0 +1,19 @@
+
+[Unit]
+Description=SQLfs mount for vconf
+# skip mounting if the directory does not exist or is a symlink
+ConditionPathIsDirectory=/opt/var/kdb/db
+ConditionPathIsSymbolicLink=!/opt/var/kdb/db
+DefaultDependencies=no
+After=local-fs.target
+Before=basic.target
+
+[Mount]
+What=libsqlfs
+Where=/opt/var/kdb/db
+Type=fuse.libsqlfs
+Options=nonempty,allow_other,default_permissions,use_ino,noforget
+
+[Install]
+WantedBy=basic.target
+
