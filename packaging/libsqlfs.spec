@@ -8,6 +8,7 @@ Source0:    libsqlfs-%{version}.tar.gz
 Source1:    opt-var-kdb-db.mount
 Source4:    mount.fuse.libsqlfs
 Source5:    opt-var-kdb-db-libsqlfs.service
+Source6:    opt-var-kdb-db-smack-labels.service
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(fuse)
 BuildRequires:  libattr-devel
@@ -58,6 +59,7 @@ install -m 0755 %{SOURCE4} %{buildroot}/sbin/
 mkdir -p %{buildroot}%{_libdir}/systemd/system/basic.target.wants
 install -m 0644 %{SOURCE1} %{buildroot}%{_libdir}/systemd/system/
 install -m 0644 %{SOURCE5} %{buildroot}%{_libdir}/systemd/system/
+install -m 0644 %{SOURCE6} %{buildroot}%{_libdir}/systemd/system/
 ln -sf ../opt-var-kdb-db-libsqlfs.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
 ln -sf ../opt-var-kdb-db-smack-labels.service %{buildroot}%{_libdir}/systemd/system/basic.target.wants/
 
@@ -87,6 +89,7 @@ systemctl daemon-reload
 %{_bindir}/libsqlfs_mount
 %{_libdir}/systemd/system/opt-var-kdb-db.mount
 %{_libdir}/systemd/system/opt-var-kdb-db-libsqlfs.service
+%{_libdir}/systemd/system/opt-var-kdb-db-smack-labels.service
 %{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-libsqlfs.service
 %{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-smack-labels.service
 /usr/share/license/%{name}
