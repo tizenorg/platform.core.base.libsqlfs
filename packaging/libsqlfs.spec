@@ -9,6 +9,7 @@ Source1:    opt-var-kdb-db.mount
 Source4:    mount.fuse.libsqlfs
 Source5:    opt-var-kdb-db-libsqlfs.service
 Source6:    opt-var-kdb-db-smack-labels.service
+Source7:    libsqlfs.preinit
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(fuse)
 BuildRequires:  libattr-devel
@@ -70,6 +71,9 @@ install -m 0755 sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/init.d
 ln -s ../init.d/sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/rc3.d/S03sqlfs-mount
 ln -s ../init.d/sqlfs-mount %{buildroot}%{_sysconfdir}/rc.d/rc4.d/S03sqlfs-mount
 
+mkdir -p %{buildroot}%{_sysconfdir}/preconf.d
+install -m 0755 %{SOURCE7} %{buildroot}%{_sysconfdir}/preconf.d
+
 mkdir -p %{buildroot}/usr/share/license
 install COPYING %{buildroot}/usr/share/license/%{name}
 
@@ -93,6 +97,7 @@ systemctl daemon-reload
 %{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-libsqlfs.service
 %{_libdir}/systemd/system/basic.target.wants/opt-var-kdb-db-smack-labels.service
 /usr/share/license/%{name}
+%{_sysconfdir}/preconf.d/libsqlfs.preinit
 
 %changelog
 * Thu Jul 12 2012 - Hyungdeuk Kim <hd3.kim@samsung.com>
