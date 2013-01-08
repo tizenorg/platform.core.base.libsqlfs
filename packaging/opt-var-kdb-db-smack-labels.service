@@ -1,6 +1,7 @@
 
 [Unit]
 Description=SQLfs smack labels for vconf
+DefaultDependencies=no
 After=opt-var-kdb-db-libsqlfs.service
 Requires=opt-var-kdb-db-libsqlfs.service
 Before=basic.target
