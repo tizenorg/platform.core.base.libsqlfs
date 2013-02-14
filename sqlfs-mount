@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# the followings are moved to vconf-init in vconf package
+
+# sqlfs mount(for configuration system)
+#if [ -f /opt/var/kdb/kdb_first_boot ]; then
+#   mv /opt/var/kdb/db /opt/var/kdb/db_tmp
+#   mkdir -p /opt/var/kdb/db
+#   /usr/bin/libsqlfs_mount -s -o nonempty -o default_permissions -o allow_other -o use_ino -o noforget /opt/var/kdb/db
+#   sqlfs_txn_cmd /opt/var/kdb/db "chmod 777 /opt/var/kdb/db"
+#   sqlfs_txn_cmd /opt/var/kdb/db "mv /opt/var/kdb/db_tmp/* /opt/var/kdb/db/"
+#   rm -rf /opt/var/kdb/db_tmp /opt/var/kdb/kdb_first_boot
+#else
+#   /usr/bin/libsqlfs_mount -s -o nonempty -o default_permissions -o allow_other -o use_ino -o noforget /opt/var/kdb/db
+#fi
+
+#smack label requested by kd0228.kim
+#if [ -f /usr/lib/rpm-plugins/msm.so ]
+#then
+#    chsmack -a '*' /opt/var/kdb/db
+#fi
