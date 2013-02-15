@@ -1,0 +1,17 @@
+# Initialize /opt/var/kdb sqlfs-backed database
+
+# /dev, as precreated by mic(1) doesn't provide necessary node
+mknod -m660 /dev/fuse c 10 229
+
+# Stolen from init script found in libsqlfs package
+if [ -f /opt/var/kdb/kdb_first_boot ]; then
+   mv /opt/var/kdb/db /opt/var/kdb/db_tmp
+   mkdir -p /opt/var/kdb/db
+   libsqlfs_mount -s -o nonempty -o default_permissions -o allow_other -o use_ino -o noforget /opt/var/kdb/db
+   sqlfs_txn_cmd /opt/var/kdb/db "chmod 1777 /opt/var/kdb/db"
+   sqlfs_txn_cmd /opt/var/kdb/db "cp -a /opt/var/kdb/db_tmp/* /opt/var/kdb/db/"
+   rm -f /opt/var/kdb/kdb_first_boot
+   rm -rf /opt/var/kdb/db_tmp
+   chsmack -a '*' /opt/var/kdb/db
+   umount /opt/var/kdb/db
+fi
