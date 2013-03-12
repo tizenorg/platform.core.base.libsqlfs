@@ -1,0 +1,21 @@
+Source: libsqlfs
+Section: tools
+Priority: extra
+Maintainer: Hakjoo Ko <hakjoo.ko@samsung.com>, Youmin Ha <youmin.ha@samsung.com>
+Uploaders: Mike McCormack <mj.mccormack@samsung.com>
+Build-Depends: debhelper (>= 5), autotools-dev, libfuse-dev, libsqlite3-dev, libcap-dev, libattr1-dev
+Standards-Version: 3.7.2
+
+Package: sqlfs-bin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: FUSE module for filessystem on top of an SQLite database
+  The libsqlfs library implements a POSIX style file system on top of an
+  SQLite database.  It allows applications to have access to a full read/write
+  file system in a single file, complete with its own file hierarchy and name
+  space.  This is useful for applications which needs structured storage, such
+  as embedding documents within documents, or management of configuration
+  data or preferences.  Libsqlfs can be used as an shared library, or it can be
+  built as a FUSE (Linux File System in User Space) module to allow a libsqlfs
+  database to be accessed via OS level file system interfaces by normal
+  applications.

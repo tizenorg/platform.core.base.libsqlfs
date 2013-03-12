@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ ${USER} = "root" ]
+then
+   # Change file owner
+   chown root:root @PREFIX@/bin/libsqlfs_mount
+   chown root:root /etc/rc.d/init.d/sqlfs-mount
+fi
+
+# Change File permissions
+#chmod 700 @PREFIX@/bin/libsqlfs_mount
+#chmod 700 /etc/rc.d/init.d/sqlfs-mount
+
