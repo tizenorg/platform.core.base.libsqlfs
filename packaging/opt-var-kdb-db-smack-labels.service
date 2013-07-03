@@ -9,7 +9,6 @@ Before=basic.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/chsmack -a '*' /opt/var/kdb/db
 
 [Install]
 WantedBy=basic.target

@@ -15,7 +15,3 @@
 #fi
 
 #smack label requested by kd0228.kim
-#if [ -f /usr/lib/rpm-plugins/msm.so ]
-#then
-#    chsmack -a '*' /opt/var/kdb/db
-#fi

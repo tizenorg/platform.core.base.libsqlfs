@@ -12,6 +12,5 @@ if [ -f /opt/var/kdb/kdb_first_boot ]; then
    sqlfs_txn_cmd /opt/var/kdb/db "cp -a /opt/var/kdb/db_tmp/* /opt/var/kdb/db/"
    rm -f /opt/var/kdb/kdb_first_boot
    rm -rf /opt/var/kdb/db_tmp
-   chsmack -a '*' /opt/var/kdb/db
    umount /opt/var/kdb/db
 fi
