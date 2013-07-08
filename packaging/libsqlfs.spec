@@ -10,6 +10,7 @@ Source4:    mount.fuse.libsqlfs
 Source5:    opt-var-kdb-db-libsqlfs.service
 Source6:    opt-var-kdb-db-smack-labels.service
 Source7:    libsqlfs.preinit
+Source1001: 	libsqlfs.manifest
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(fuse)
 BuildRequires:  libattr-devel
@@ -24,6 +25,7 @@ FUSE module for filesystem on top of an SQLite database
 
 %prep
 %setup -q 
+cp %{SOURCE1001} .
 
 %build
 #%configure
@@ -84,7 +86,7 @@ systemctl daemon-reload
 systemctl daemon-reload
 
 %files
-%manifest libsqlfs.manifest
+%manifest %{name}.manifest
 %{_sysconfdir}/rc.d/init.d/sqlfs-mount
 %{_sysconfdir}/rc.d/rc3.d/S03sqlfs-mount
 %{_sysconfdir}/rc.d/rc4.d/S03sqlfs-mount
