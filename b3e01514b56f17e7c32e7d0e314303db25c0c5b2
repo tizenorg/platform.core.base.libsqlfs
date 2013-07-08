@@ -1,0 +1,10 @@
+Change-Id: Ib3e01514b56f17e7c32e7d0e314303db25c0c5b2
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Code-Review+1: Elena Reshetova <elena.reshetova@intel.com>
+Verified+1: Elena Reshetova <elena.reshetova@intel.com>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Mon, 08 Jul 2013 09:36:23 -0700
+Reviewed-on: https://review.tizen.org/gerrit/5439
+Project: platform/core/base/libsqlfs
+Branch: refs/heads/tizen
