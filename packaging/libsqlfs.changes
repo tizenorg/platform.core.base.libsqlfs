@@ -1,0 +1,28 @@
+* Sun Aug 25 2013 Chengwei Yang <chengwei.yang@intel.com> accepted/tizen/20130717.201337@05af590
+- Merge "resetting manifest requested domain to floor" into tizen
+- Merge "resetting manifest requested domain to floor" into tizen
+- removing chsmack
+- resetting manifest requested domain to floor
+- resetting manifest requested domain to floor
+- merge from master
+- Tizen 2.1 base
+- Disable sqlfs mounting
+- Set smack label for booting script Change-Id: I1dc3f4a113e9e055a40e56eafc8066376b5bcc0c
+- [systemd] put "DefaultDependencies=no" since this service is executed during early boot
+- [systemd] migrate from kickstart
+- Fix invalid usage of variable in spec file
+- [systemd] Add missing opt-var-kdb-db-smack-labels.service
+- Merge branch 'for-rsa-systemd'
+- Only when smack is enabled, run chsmack
+- Fix build: remove duplicate file
+- spec: fix the merge mistake.
+- Merge branch 'master' into systemd
+- Add smack manifest Install license info into /usr/share/license
+- Get rid of db-preinialization routines from normal bootup for systemd case
+- Introduce systemd support
+- tizen 2.0 merge
+- upload tizen1.0 source
+- update for beta universally
+- Git init
+- Initial empty repository
+
