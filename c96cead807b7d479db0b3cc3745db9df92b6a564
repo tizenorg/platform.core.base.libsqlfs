@@ -1,0 +1,10 @@
+Code-Review+2: Brad Peters <brad.t.peters@intel.com>
+Verified+1: Brad Peters <brad.t.peters@intel.com>
+Code-Review+1: Lukasz Stelmach <l.stelmach@samsung.com>
+Code-Review+1: Jacek Pielaszkiewicz <j.pielaszkie@samsung.com>
+Code-Review+1: Sangjung Woo <sangjung.woo@samsung.com>
+Submitted-by: Brad Peters <brad.t.peters@intel.com>
+Submitted-at: Wed, 11 Sep 2013 11:28:35 -0700
+Reviewed-on: https://review.tizen.org/gerrit/8622
+Project: platform/core/base/libsqlfs
+Branch: refs/heads/tizen
